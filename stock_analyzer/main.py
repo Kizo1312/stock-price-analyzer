@@ -1,7 +1,8 @@
 from fetch_data import get_stock_data
-company = input("enter a company")
-start_date= input("enter the starting date")
-end_date = input("enter the ending date")
+from visualize import plot_close_price
+company = input("enter a company").strip().upper()
+start_date= input("enter the starting date").strip()
+end_date = input("enter the ending date").strip()
 
 if not start_date and not end_date:
   df = get_stock_data(company)
@@ -14,4 +15,4 @@ else:
 
 
 
-print(df)
+plot_close_price(df, company)
